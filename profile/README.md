@@ -53,7 +53,36 @@ High-performance Rust implementation featuring:
 - 📊 Zero-cost abstractions
 
 ```bash
-cargo add mailbox
+cargo add mboxlabs-mailbox
+```
+
+## 📦 Package Naming Convention
+
+Different package registries have different naming capabilities. Here's how we maintain consistency across platforms:
+
+| Platform | Naming Format | Examples |
+|----------|--------------|----------|
+| **npm** | `@mboxlabs/<name>` | `@mboxlabs/mailbox`, `@mboxlabs/input`, `@mboxlabs/email` |
+| **PyPI** | `mboxlabs-<name>` | `mboxlabs-mailbox`, `mboxlabs-input`, `mboxlabs-email` |
+| **crates.io** | `mboxlabs-<name>` | `mboxlabs-mailbox`, `mboxlabs-input`, `mboxlabs-email` |
+
+### Why Different Names?
+
+- **npm** supports scoped packages (`@scope/name`), which provides clear namespacing
+- **PyPI** and **crates.io** don't support scopes, so we use the `mboxlabs-` prefix
+- This ensures all our packages are easily discoverable and clearly branded
+
+### Rust Note
+
+In Rust code, hyphens in package names are automatically converted to underscores:
+
+```rust
+// Cargo.toml
+[dependencies]
+mboxlabs-mailbox = "0.1"
+
+// In your code
+use mboxlabs_mailbox::Mailbox;
 ```
 
 ## 🎯 Core Concepts
